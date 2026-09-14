@@ -99,7 +99,10 @@ class DataTransformation:
 
             logging.info("Saved preprocessing object.")
 
-            save_object(file_path=self.data_transformation_config.preprocessor_ob_file_path,obj=preprocessing_obj)
+            save_object(   ##Utils file ma function chhe
+                file_path=self.data_transformation_config.preprocessor_ob_file_path,
+                obj=preprocessing_obj
+            )
 
             return(
                 train_arr,

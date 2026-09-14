@@ -5,7 +5,6 @@ def error_message_detail(error,error_detail:sys):
     _,_,exc_tb=error_detail.exc_info()   # Kai file ma kai line ma and kai error occur thai chhe ani information ape
     file_name = exc_tb.tb_frame.f_code.co_filename
     error_message = "Error occured in python script name {} line number {} Error Message {}".format(file_name,exc_tb.tb_lineno,str(error))
-
     return error_message
 
 
@@ -17,9 +16,9 @@ class CustomException(Exception):
     def __str__(self):
         return self.error_message
     
-if __name__=="__main__":        #### Just for testing purpose
-    try:
-        a=4/0
-    except Exception as e:
-        logging.info("Divide by zero error")
-        raise CustomException(e,sys)
+# if __name__=="__main__":        #### Just for testing purpose
+#     try:
+#         a=4/0
+#     except Exception as e:
+#         logging.info("Divide by zero error")
+#         raise CustomException(e,sys)

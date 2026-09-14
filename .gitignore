@@ -101,6 +101,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# Training logs
+catboost_info/
+
 # Environments
 .env
 .venv

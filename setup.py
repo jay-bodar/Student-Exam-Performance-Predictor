@@ -1,18 +1,28 @@
+## Setup.py is just to build our project as a python package and we can also deploy this package in pypi package
+
 from setuptools import find_packages,setup
 from typing import List 
 
+
+with open("README.md", "r", encoding="utf-8") as f:
+    long_description= f.read()
+    
+## To read requirement.txt file and list down all the requirements
 HYPHEN_E_DOT='-e .'
 def get_requirements(file_path:str)->List[str]:
     '''
     this function will return the list of requirements
     '''
     requirements=[]
-    with open(file_path) as file_obj:
+    with open(file_path) as file_obj:                              
         requirements=file_obj.readlines()
+        # it will also consider the \n in the file of text.
+        
         requirements=[req.replace('\n','') for req in requirements]
 
         if HYPHEN_E_DOT in requirements:
             requirements.remove(HYPHEN_E_DOT)
+    return requirements
 
 setup(
     name='mlproject',
@@ -20,5 +30,5 @@ setup(
     author='Jay',
     author_email='jaybodar1108@gmail.com',
     packages=find_packages(),
-    install_requires=get_requirements('requirements.txt')
+    install_requires=get_requirements('requirements.txt')  ## It take a list of string to install all the requirements
 )
